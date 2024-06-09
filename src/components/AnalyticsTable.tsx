@@ -15,7 +15,14 @@ const AnalyticsTable: React.FC = () => {
   useEffect(() => {
     fetch('https://my-json-server.typicode.com/Codeinwp/front-end-internship-api/posts')
       .then(response => response.json())
-      .then(data => setCards(data));
+      .then(data => {
+        // Convert IDs to strings
+        const formattedData = data.map((card: any) => ({
+          ...card,
+          id: card.id.toString(),
+        }));
+        setCards(formattedData);
+      });
   }, []);
 
   const getCardTitleById = (id: string) => {

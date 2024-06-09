@@ -19,6 +19,7 @@ This project is a React application that displays a list of cards. Users can cli
 - [Key Decisions](#key-decisions)
 - [Project Structure](#project-structure)
 - [Screenshots](#screenshots)
+- [Deployment](#deployment)
 
 ## Installation
 
@@ -114,4 +115,7 @@ FrontendTest/
 
 *Analytics Page*
 ![Analytics](https://github.com/Jennydunix/FrontendTest/assets/88034429/c8113668-5e19-4d99-ac72-970c9c26782f)
+
+## Deployment
+This project is deployed and hosted on [Vercel](https://vercel.com/). You can access the live version [here] https://frontend-test-wine-zeta.vercel.app/).
 

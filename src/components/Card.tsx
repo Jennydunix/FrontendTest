@@ -23,7 +23,10 @@ const Card: React.FC<CardProps> = ({ id, title, date, content, thumbnail, author
 
   return (
     <div className="card" onClick={onClick}>
-      <img src={thumbnail.large} alt={title} className="card-image" />
+      <div className="image-container">
+        <img src={thumbnail.large} alt={title} className="card-image" />
+        <button className="learn-more">Learn More</button>
+      </div>
       <div className="card-body">
         <h3 className="card-title">{title}</h3>
         <p className="card-content">{content}</p>
@@ -36,7 +39,6 @@ const Card: React.FC<CardProps> = ({ id, title, date, content, thumbnail, author
           </div>
           <span className="card-date">{formattedDate}</span>
         </div>
-        <button className="learn-more">Learn More</button>
       </div>
     </div>
   );

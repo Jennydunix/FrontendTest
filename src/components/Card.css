@@ -59,12 +59,12 @@
   }
   
   .card-title {
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     margin: 0 0 8px;
   }
   
   .card-content {
-    font-size: 1rem;
+    font-size: 0.5rem;
     color: #666;
     margin-bottom: 16px;
   }
@@ -86,12 +86,12 @@
   }
   
   .author-role {
-    font-size: 0.875rem;
+    font-size: 0.4rem;
     color: #999;
   }
   
   .card-date {
-    font-size: 0.875rem;
+    font-size: 0.4rem;
     color: #999;
   }
   

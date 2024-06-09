@@ -1,0 +1,28 @@
+.analytics-table-container {
+    padding: 16px;
+  }
+  
+  .analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .analytics-table th,
+  .analytics-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .analytics-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .analytics-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .analytics-table tbody tr:hover {
+    background-color: #ddd;
+  }
+  

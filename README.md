@@ -1,46 +1,117 @@
-# Getting Started with Create React App
+# FrontendTest
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This project is a React application that displays a list of cards. Users can click on the cards to view more details in a modal. The application also tracks the number of times each card has been clicked, using Redux for state management. An analytics page provides a table view of the card click statistics.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Display cards with title, content, image, and author details.
+- Click on a card to open a modal with more details.
+- Track the number of times each card has been clicked.
+- Analytics page to view the card click statistics.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Approach](#approach)
+- [Key Decisions](#key-decisions)
+- [Project Structure](#project-structure)
+- [Screenshots](#screenshots)
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
 
-### `npm run build`
+```bash
+git clone https://github.com/your-username/FrontendTest.git.
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cd FrontendTest
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install the dependencies:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Usage
+1. Start the development server:
+   
+```bash
+npm start
+```
+2. Open your browser and go to http://localhost:3000.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Navigate between the home page and analytics page using the navigation links.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Approach
+a. Project Structure: The project is structured with components, pages, and a store for managing the application state. The main components are Card, CardList, Modal, and AnalyticsTable.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+b. State Management: The application uses Redux for state management, specifically the Redux Toolkit to simplify the process of creating slices and reducers.
 
-## Learn More
+c. Fetching Data: Data is fetched from a mock API using the fetch API in the useEffect hook. The data is then stored in the component state and used throughout the application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+d. Styling: CSS is used for styling the components. The styles are written in separate CSS files for each component to keep the styles modular and maintainable.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+e. Routing: React Router is used to manage the navigation between the home page and the analytics page.
+
+
+## Key Decisions
+a. Redux Toolkit: Chose Redux Toolkit for state management due to its simplicity and ease of use for this project.
+
+b. Date-fns: Used date-fns for date formatting due to its lightweight nature and ease of use.
+
+c. CSS for Styling: Decided to use CSS for styling to keep the project simple and avoid the complexity of CSS-in-JS solutions.
+
+d. Fetch API: Used the native fetch API for data fetching to avoid additional dependencies.
+
+## Project Structure
+```bash
+FrontendTest/
+│
+├── public/
+│   ├── index.html
+│   └── ...
+│
+├── src/
+│   ├── components/
+│   │   ├── Card.tsx
+│   │   ├── CardList.tsx
+│   │   ├── Modal.tsx
+│   │   └── AnalyticsTable.tsx
+│   │
+│   ├── pages/
+│   │   ├── Home.tsx
+│   │   ├── Analytics.tsx
+│   │   └── ...
+│   │
+│   ├── store/
+│   │   ├── index.ts
+│   │   ├── cardSlice.ts
+│   │   └── ...
+│   │
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── ...
+│
+├── package.json
+├── README.md
+└── ...
+
+```
+
+## Screenshots
+*HomePage*
+![homepage](https://github.com/Jennydunix/FrontendTest/assets/88034429/6b1788c3-765c-411f-8a04-a9a98a9fe647)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+*Analytics Page*
+![Analytics](https://github.com/Jennydunix/FrontendTest/assets/88034429/c8113668-5e19-4d99-ac72-970c9c26782f)
+

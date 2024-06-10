@@ -1,5 +1,3 @@
-// store/index.ts
-
 import { configureStore } from '@reduxjs/toolkit';
 import persistedReducer from './persistConfig';
 import { persistStore } from 'redux-persist'; // Import persistStore

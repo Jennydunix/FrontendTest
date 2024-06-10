@@ -83,9 +83,7 @@ I.Install Redux Persist:
 II. Configure Redux Persist:Create a persistConfig and configure the store with Redux Persist.
 
 ```bash
- 
-// store/index.ts
-import { configureStore } from '@reduxjs/toolkit';
+ // store/persistConfig.ts
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import cardReducer from './cardSlice';
@@ -97,17 +95,8 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, cardReducer);
 
-const store = configureStore({
-  reducer: {
-    cards: persistedReducer,
-  },
-});
+export { persistedReducer, persistStore };
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-export const persistor = persistStore(store);
-
-export default store;
  ```
 III. Wrap the App with PersistGate:
 ```bash

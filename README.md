@@ -72,6 +72,66 @@ c. CSS for Styling: Decided to use CSS for styling to keep the project simple an
 
 d. Fetch API: Used the native fetch API for data fetching to avoid additional dependencies.
 
+e. Adding Redux Persist: To maintain the state of the application across page refreshes, Redux Persist was integrated. This ensures that the click counts for each card are not lost when the page is reloaded.
+
+## Implementation
+I.Install Redux Persist:
+
+```bash
+ install redux-persist
+```
+II. Configure Redux Persist:Create a persistConfig and configure the store with Redux Persist.
+
+```bash
+ 
+// store/index.ts
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import cardReducer from './cardSlice';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, cardReducer);
+
+const store = configureStore({
+  reducer: {
+    cards: persistedReducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export const persistor = persistStore(store);
+
+export default store;
+ ```
+III. Wrap the App with PersistGate:
+```bash
+ // index.tsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from './store';
+import App from './App';
+import './index.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>
+);
+
+```
 ## Project Structure
 ```bash
 FrontendTest/

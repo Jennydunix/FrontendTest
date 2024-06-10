@@ -111,25 +111,8 @@ export default store;
  ```
 III. Wrap the App with PersistGate:
 ```bash
- // index.tsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import store, { persistor } from './store';
-import App from './App';
-import './index.css';
+ 
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <App />
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>
-);
 
 ```
 ## Project Structure
@@ -143,9 +126,11 @@ FrontendTest/
 ├── src/
 │   ├── components/
 │   │   ├── Card.tsx
-│   │   ├── CardList.tsx
+│   │   ├── Card.css
+│   │   ├── CardList.tsx 
+│   │   ├── CardList.css
 │   │   ├── Modal.tsx
-│   │   └── AnalyticsTable.tsx
+│   │   ├── Modal.css
 │   │
 │   ├── pages/
 │   │   ├── Home.tsx
@@ -155,6 +140,7 @@ FrontendTest/
 │   ├── store/
 │   │   ├── index.ts
 │   │   ├── cardSlice.ts
+|
 │   │   └── ...
 │   │
 │   ├── App.tsx

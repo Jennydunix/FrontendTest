@@ -2,14 +2,14 @@
 
 ## Description
 
-This project is a React application that displays a list of cards. Users can click on the cards to view more details in a modal. The application also tracks the number of times each card has been clicked, using Redux for state management. An analytics page provides a table view of the card click statistics.
+FrontendTest is a React application that showcases card-based content. The project demonstrates the use of React, Redux for state management, and Redux Persist to maintain state across page refreshes. The project also includes routing using react-router-dom and state analytics using Redux.
 
 ## Features
 
-- Display cards with title, content, image, and author details.
-- Click on a card to open a modal with more details.
-- Track the number of times each card has been clicked.
-- Analytics page to view the card click statistics.
+- Card-based layout with click tracking
+- State persistence using Redux PersistRouting with react-router-dom
+- Analytics page showing click counts for each card
+- Modal for displaying detailed card information
 
 ## Table of Contents
 
@@ -125,12 +125,16 @@ FrontendTest/
 │
 ├── src/
 │   ├── components/
+│   │   ├── AnalyticsTable.tsx 
+│   │   ├── AnalyticsTable.css
 │   │   ├── Card.tsx
 │   │   ├── Card.css
 │   │   ├── CardList.tsx 
 │   │   ├── CardList.css
 │   │   ├── Modal.tsx
 │   │   ├── Modal.css
+│   │   ├── NavBar.tsx 
+│   │   ├── NavBar.css
 │   │
 │   ├── pages/
 │   │   ├── Home.tsx
@@ -140,11 +144,12 @@ FrontendTest/
 │   ├── store/
 │   │   ├── index.ts
 │   │   ├── cardSlice.ts
-|
+│   │   ├── persistConfig.ts
 │   │   └── ...
 │   │
 │   ├── App.tsx
 │   ├── index.tsx
+│   ├── index.css
 │   └── ...
 │
 ├── package.json

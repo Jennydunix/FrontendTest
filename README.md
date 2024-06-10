@@ -2,14 +2,14 @@
 
 ## Description
 
-This project is a React application that displays a list of cards. Users can click on the cards to view more details in a modal. The application also tracks the number of times each card has been clicked, using Redux for state management. An analytics page provides a table view of the card click statistics.
+FrontendTest is a React application that showcases card-based content. The project demonstrates the use of React, Redux for state management, and Redux Persist to maintain state across page refreshes. The project also includes routing using react-router-dom and state analytics using Redux.
 
 ## Features
 
-- Display cards with title, content, image, and author details.
-- Click on a card to open a modal with more details.
-- Track the number of times each card has been clicked.
-- Analytics page to view the card click statistics.
+- Card-based layout with click tracking
+- State persistence using Redux PersistRouting with react-router-dom
+- Analytics page showing click counts for each card
+- Modal for displaying detailed card information
 
 ## Table of Contents
 
@@ -19,6 +19,8 @@ This project is a React application that displays a list of cards. Users can cli
 - [Key Decisions](#key-decisions)
 - [Project Structure](#project-structure)
 - [Screenshots](#screenshots)
+- [Deployment](#deployment)
+- [Conclusion](#conclusion)
 
 ## Installation
 
@@ -71,6 +73,58 @@ c. CSS for Styling: Decided to use CSS for styling to keep the project simple an
 
 d. Fetch API: Used the native fetch API for data fetching to avoid additional dependencies.
 
+e. Adding Redux Persist: To maintain the state of the application across page refreshes, Redux Persist was integrated. This ensures that the click counts for each card are not lost when the page is reloaded.
+
+## Implementation
+I.Install Redux Persist:
+
+```bash
+ install redux-persist
+```
+II. Configure Redux Persist:Create a persistConfig and configure the store with Redux Persist.
+
+```bash
+ // store/persistConfig.ts
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import cardReducer from './cardSlice';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, cardReducer);
+
+export { persistedReducer, persistStore };
+
+ ```
+III. Wrap the App with PersistGate:
+```bash
+// index.tsx 
+  
+ import React from 'react'; 
+ import ReactDOM from 'react-dom'; 
+ import { Provider } from 'react-redux'; 
+ import { PersistGate } from 'redux-persist/integration/react'; 
+ import store, { persistor } from './store'; // Import the store and persistor 
+  
+ import App from './App'; 
+ import './index.css'; 
+  
+ const rootElement = document.getElementById('root'); 
+  
+ ReactDOM.render( 
+   <React.StrictMode> 
+     <Provider store={store}> 
+       <PersistGate loading={null} persistor={persistor}>  
+         <App /> 
+       </PersistGate> 
+     </Provider> 
+   </React.StrictMode>, 
+   rootElement 
+ );
+```
 ## Project Structure
 ```bash
 FrontendTest/
@@ -81,10 +135,16 @@ FrontendTest/
 │
 ├── src/
 │   ├── components/
+│   │   ├── AnalyticsTable.tsx 
+│   │   ├── AnalyticsTable.css
 │   │   ├── Card.tsx
-│   │   ├── CardList.tsx
+│   │   ├── Card.css
+│   │   ├── CardList.tsx 
+│   │   ├── CardList.css
 │   │   ├── Modal.tsx
-│   │   └── AnalyticsTable.tsx
+│   │   ├── Modal.css
+│   │   ├── NavBar.tsx 
+│   │   ├── NavBar.css
 │   │
 │   ├── pages/
 │   │   ├── Home.tsx
@@ -94,10 +154,12 @@ FrontendTest/
 │   ├── store/
 │   │   ├── index.ts
 │   │   ├── cardSlice.ts
+│   │   ├── persistConfig.ts
 │   │   └── ...
 │   │
 │   ├── App.tsx
 │   ├── index.tsx
+│   ├── index.css
 │   └── ...
 │
 ├── package.json
@@ -114,4 +176,10 @@ FrontendTest/
 
 *Analytics Page*
 ![Analytics](https://github.com/Jennydunix/FrontendTest/assets/88034429/c8113668-5e19-4d99-ac72-970c9c26782f)
+
+## Deployment
+This project is deployed and hosted on [Vercel](https://vercel.com/). You can access the live version [here] https://frontend-test-wine-zeta.vercel.app/).
+
+## Conclusion
+This project demonstrates a robust implementation of a React application with persistent state management and analytics. The use of Redux and Redux Persist ensures that the application state is reliably maintained, enhancing the user experience. The project is structured for scalability and ease of maintenance, making it a solid foundation for further development.
 
